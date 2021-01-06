@@ -53,48 +53,52 @@ error_reporting(E_ALL);
 
 <?php
 
-
-
-// variables
-$currencyArray= [17167.24, 1.23];
-$fromCurrency= $_POST["fromCurrency"];
-$toCurrency= $_POST["toCurrency"];
-$amount = $_POST["amount"];
-$exchangeRate= 0;
-
-// $exchangeRate * $amount = outcome;
-if (is_numeric($amount) == true){
-   
-    //starting from INDONESIA CURRENCY
-    if($toCurrency == "RS"){
-        if($fromCurrency == "EUR"){
-            $exchangeRate= 17167.24;
-        }
-        if($fromCurrency == "USD"){
-            $exchangeRate= 13934.25;
-        }
-        if(isset($_POST["amount"]) ){
-            echo $amount . " " . $fromCurrency. " equals " .$amount * $exchangeRate. " " .$toCurrency . " !";
-        }
-    }
-
-    //starting from LAOS CURRENCY
-    if($toCurrency == "LAK"){
-        if($fromCurrency == "EUR"){
-            $exchangeRate= 11418.12;
-        }
-        if($fromCurrency == "USD"){
-            $exchangeRate= 9284.48;
-        }
-        if(isset($_POST["amount"]) ){
-            echo $amount . " " . $fromCurrency. " equals " .$amount * $exchangeRate. " " .$toCurrency . " !";
-        }
-    }
-
-} else {
-    echo "write a number, smartpants";
+if (isset($_POST['submit'])) {
+    convert();
 }
 
+function convert(){
+
+    // variables
+    $currencyArray= [17167.24, 1.23];
+    $fromCurrency= $_POST["fromCurrency"];
+    $toCurrency= $_POST["toCurrency"];
+    $amount = $_POST["amount"];
+    $exchangeRate= 0;
+
+    // $exchangeRate * $amount = outcome;
+    if (is_numeric($amount) == true){
+    
+        //starting from INDONESIA CURRENCY
+        if($toCurrency == "RS"){
+            if($fromCurrency == "EUR"){
+                $exchangeRate= 17167.24;
+            }
+            if($fromCurrency == "USD"){
+                $exchangeRate= 13934.25;
+            }
+            if(isset($_POST["amount"]) ){
+                echo $amount . " " . $fromCurrency. " equals " .$amount * $exchangeRate. " " .$toCurrency . " !";
+            }
+        }
+
+        //starting from LAOS CURRENCY
+        if($toCurrency == "LAK"){
+            if($fromCurrency == "EUR"){
+                $exchangeRate= 11418.12;
+            }
+            if($fromCurrency == "USD"){
+                $exchangeRate= 9284.48;
+            }
+            if(isset($_POST["amount"]) ){
+                echo $amount . " " . $fromCurrency. " equals " .$amount * $exchangeRate. " " .$toCurrency . " !";
+            }
+        }
+
+    } else {
+        echo "write a number, smartpants";
+    }
+}
 
 ?> 
 
