@@ -45,7 +45,7 @@ error_reporting(E_ALL);
         </tr>
         <tr>
             <td><br>
-            <input type='submit' name='submit' value="Convert"> <br>
+            <input type='submit' name='submit' value="Convert"> <br> <br>
             </td>
         </tr>
     </table></div>
@@ -78,7 +78,7 @@ function convert(){
                 $exchangeRate= 13934.25;
             }
             if(isset($_POST["amount"]) ){
-                echo $amount . " " . $fromCurrency. " equals " .$amount * $exchangeRate. " " .$toCurrency . " !";
+                echo "Convert " .$amount . " " . $fromCurrency. " <br> <br> Into " .$amount * $exchangeRate. " " .$toCurrency . " !";
             }
         }
 
@@ -91,7 +91,7 @@ function convert(){
                 $exchangeRate= 9284.48;
             }
             if(isset($_POST["amount"]) ){
-                echo $amount . " " . $fromCurrency. " equals " .$amount * $exchangeRate. " " .$toCurrency . " !";
+                echo "Convert " .$amount . " " . $fromCurrency. " <br> <br> Into " .$amount * $exchangeRate. " " .$toCurrency . " !";
             }
         }
 
