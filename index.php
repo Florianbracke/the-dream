@@ -18,37 +18,28 @@ error_reporting(E_ALL);
 <h1>Welcome!</h1>
 
 <form  action="" method="post">
-
     <div id="box"> 
         <h2>Currency Converter</h2>
-    <table>
-        <tr>
-        <td>
-                <br>From <select name='fromCurrency'>
-                    <option value="EUR">Euro(EUR)</option>
-                    <option value="USD">US Dollar(USD)</option>
-            </select>
-        </td>
-        </tr>
-        <tr>
-            <td>
-                <br>To <select name='toCurrency'>
-                    <option value="RS">Indonesian Rupiah(RS)</option>
-                    <option value="LAK">Lao kip(LAK)</option>
-            </select>
-            </td>
-        </tr>  
-        <tr>
-            <td>
-                <br> Amount <input type="text" name="amount" value=""><br>
-            </td>
-        </tr>
-        <tr>
-            <td><br>
-            <input type='submit' name='submit' value="Convert"> <br> <br>
-            </td>
-        </tr>
-    </table></div>
+
+                    <h3>From </h3> 
+                    <select name='fromCurrency'>                                    
+                        <option value="EUR">Euro(EUR)</option>
+                        <option value="USD">US Dollar(USD)</option>
+                    </select>                                                       
+<br>
+                    <h3>To</h3> 
+                    <select name='toCurrency'>                                      
+                        <option value="RS">Indonesian Rupiah(RS)</option>
+                        <option value="LAK">Lao kip(LAK)</option>
+                    </select>                                                       
+<br>
+                    <h3>Amount </h3> 
+                    <input type="text" name="amount" value="">
+<br>
+                    <input type='submit' name='submit' value="Convert"> 
+<br>
+            
+    </div>
 </form>
 
 <?php
@@ -65,36 +56,23 @@ function convert(){
     $toCurrency= $_POST["toCurrency"];
     $amount = $_POST["amount"];
     $exchangeRate= 0;
-
-    // $exchangeRate * $amount = outcome;
-    if (is_numeric($amount) == true){
     
-        //starting from INDONESIA CURRENCY
-        if($toCurrency == "RS"){
+    if (is_numeric($amount) == true){
+        if($toCurrency == "RS"){      //starting from INDONESIA CURRENCY
             if($fromCurrency == "EUR"){
                 $exchangeRate= 17167.24;
-            }
-            if($fromCurrency == "USD"){
+            }if($fromCurrency == "USD"){
                 $exchangeRate= 13934.25;
             }
-            if(isset($_POST["amount"]) ){
-                echo "Convert " .$amount . " " . $fromCurrency. " <br> <br> Into " .$amount * $exchangeRate. " " .$toCurrency . " !";
-            }
-        }
-
-        //starting from LAOS CURRENCY
-        if($toCurrency == "LAK"){
+        }if($toCurrency == "LAK"){    //starting from LAOS CURRENCY
             if($fromCurrency == "EUR"){
                 $exchangeRate= 11418.12;
-            }
-            if($fromCurrency == "USD"){
+            }if($fromCurrency == "USD"){
                 $exchangeRate= 9284.48;
             }
-            if(isset($_POST["amount"]) ){
-                echo "Convert " .$amount . " " . $fromCurrency. " <br> <br> Into " .$amount * $exchangeRate. " " .$toCurrency . " !";
-            }
+        }if(isset($_POST["amount"]) ){   
+            echo "Convert " .$amount . " " . $fromCurrency. " <br> <br> Into " .$amount * $exchangeRate. " " .$toCurrency . " !";
         }
-
     } else {
         echo "write a number, smartpants";
     }
